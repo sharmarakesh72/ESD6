@@ -1,5 +1,5 @@
 const express = require("express");
-const port = 8080;
+const port = 3000;
 const user_model = require("./users_module");
 const User = user_model.User;
 const app = express();

@@ -9,7 +9,7 @@ app.use(cors());
 app.get("/", (req, res) => {
 res.send("Hello Friends..");
 });
-app.get("/user", async (req, res) => {
+app.get("/user/", async (req, res) => {
 let data = await User.find().sort({_id:-1});
 res.send(data);
 });
@@ -18,13 +18,13 @@ console.log(req.params.id);
 let data = await User.find({"_id": req.params.id});
 res.send(data[0]);
 });
-app.post("/user", async (req, res) => {
+app.post("/user/", async (req, res) => {
 console.log(req.body)
 let u = await User(req.body);
 let result = u.save();
 res.send(req.body);
 });
-app.put("/user", async (req, res) => {
+app.put("/user/", async (req, res) => {
 console.log(req.body);
 //User.updateOne({where}, {set});
 let u_data = await User.updateOne({"_id": req.body._id}, {
